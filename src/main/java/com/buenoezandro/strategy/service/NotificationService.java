@@ -1,10 +1,7 @@
 package com.buenoezandro.strategy.service;
 
 import com.buenoezandro.strategy.exception.InvalidNotificationChannelException;
-import com.buenoezandro.strategy.service.strategy.DiscordNotificationStrategy;
-import com.buenoezandro.strategy.service.strategy.EmailNotificationStrategy;
-import com.buenoezandro.strategy.service.strategy.TwitterNotificationStrategy;
-import com.buenoezandro.strategy.service.strategy.WhatsAppNotificationStrategy;
+import com.buenoezandro.strategy.service.strategy.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -18,7 +15,7 @@ public class NotificationService {
     public NotificationService() {
         mapStrategy = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         mapStrategy.put("Discord", new DiscordNotificationStrategy());
-        mapStrategy.put("Instagram", new DiscordNotificationStrategy());
+        mapStrategy.put("Instagram", new InstagramNotificationStrategy());
         mapStrategy.put("Twitter", new TwitterNotificationStrategy());
         mapStrategy.put("Email", new EmailNotificationStrategy());
         mapStrategy.put("WhatsApp", new WhatsAppNotificationStrategy());
